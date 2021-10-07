@@ -238,3 +238,31 @@ git pull origin main
 git pull --all
 #it pulled down the changes and MERGED with a fast-forward. Remember that
 git status
+gitgraph
+
+#git pull actually is doing two things
+#to just get remote content
+git fetch
+#can be explicit
+git fetch origin main 
+
+git cat-file -p origin/main
+#content is now on our box, just not merged
+gitgraph
+git status
+#we can see its just ahead as a direct child of our commit so a straight line to it
+git merge
+#fast forward again
+gitgraph
+
+#WB14
+#Likewise if we change locally we need to push to the remote
+#As a best practice pull first (fetch and merge) to ensure all clean
+git pull
+#make a change
+code .\testfile.txt
+git commit -am "updated testfile.txt"
+git status 
+gitgraph
+git push
+#git push --tags
