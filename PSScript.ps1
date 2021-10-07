@@ -266,3 +266,14 @@ git status
 gitgraph
 git push
 #git push --tags
+
+#gitignore
+code .gitignore #add *.log /debug/*
+git add .
+git commit -m "added ignore file"
+git push
+git status
+code test.log
+code debug\file.txt
+ls
+git status 
