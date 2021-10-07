@@ -230,3 +230,11 @@ git push --tag
 gitgraph
 git status
 
+#Pull down remote origin
+git pull
+#Can specify where to pull from and branch
+git pull origin main
+#pull from all remotes
+git pull --all
+#it pulled down the changes and MERGED with a fast-forward. Remember that
+git status
