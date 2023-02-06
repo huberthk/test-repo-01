@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'FTA HKUDYBA - Azure CXP Internal 2(7234ee6c-72b4-4c9a-96be-035c5560f9c9)'
+    subscriptionId: '7234ee6c-72b4-4c9a-96be-035c5560f9c9'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'arm-vscode'
+    location: 'Poland Central'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployHubandSpokeinPolandCentral'
